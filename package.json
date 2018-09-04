@@ -1,0 +1,19 @@
+{
+  "name": "chain_mocha_practise",
+  "version": "1.0.0",
+  "description": "A basic Chai and Mocha setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/PK-studio/chai-mocha-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PK-studio/chai-mocha-practice/issues"
+  },
+  "homepage": "https://github.com/PK-studio/chai-mocha-practice#readme"
+}
