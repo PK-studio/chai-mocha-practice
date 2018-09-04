@@ -1,15 +1,15 @@
 const assert = require('chai').assert;
 const app = require('../app');
 
-const start = app.start();
-const validNumber = app.nuberTest();
+describe('Init App', function(){
+  it('find app location', function(){
+    assert(app, 'app file didnt find');
+  })
+});
 
-describe('App', function(){
-  describe('Init App', function(){
-    it('it should return app', function(){
-      assert(app, 'app file didnt find');
-    })
-  });
+describe('Basic Values', function(){
+  const start = app.basicValues.start();
+  const addNumber = app.basicValues.addNumbers(5, 5);
 
   describe('Valid string', function(){
     it('it should return string', function(){
@@ -17,7 +17,7 @@ describe('App', function(){
     })
   });
 
-  describe('Valid string value', function(){
+  describe('Match string', function(){
     it('it should return word: test', function(){
       assert.equal(start, 'start');
     })
@@ -25,13 +25,19 @@ describe('App', function(){
 
   describe('Valid number', function(){
     it('it should return number', function(){
-      assert.typeOf(validNumber, 'Number');
+      assert.typeOf(addNumber, 'Number');
     })
   });
 
-  describe("Valid number value", function(){
+  describe("check addNumber function", function(){
     it('it should return more then 0', function(){
-      assert.isAbove(validNumber, 0);
+      assert.isAbove(addNumber, 0);
     })
   });
+
+  describe('check addNumber function', function(){
+    it('it should give 10', function(){
+      assert.equal(addNumber, 10);
+    })
+  })
 })

@@ -1,8 +1,10 @@
 module.exports = {
-  start: function() {
-    return 'start';
-  },
-  nuberTest: function() {
-    return 2;
-  },
+  basicValues: {
+    start: function() {
+      return 'start';
+    },
+    addNumbers: function(a,b){
+      return a+b;
+    }
+  }
 }
