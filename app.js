@@ -33,5 +33,29 @@ module.exports = {
     this.clear = function(){
       numbers.splice(0,numbers.length);
     }
+  },
+  task: function(){
+    this.listFromNumber = (num) => {
+      let list = [];
+      if(!num || typeof num != 'number') return list;
+      list = num.toString().split("");
+      let l = list.length;
+      while(l < 9){
+        list.unshift("0")
+        l++;
+      } 
+      return list;
+    };
+    this.splitToGroups = (num) => {
+      let list = this.listFromNumber(num);
+      let group = [];
+      var l = list.length;
+      while(l > 0){
+        let newArrey = list.splice(list.length-3, 3);
+        group.push(newArrey);
+        l = list.length;
+      }
+      return group;
+    }
   }
 }

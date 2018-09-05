@@ -86,4 +86,29 @@ describe('@ Paying on array', () => {
       expect(arrayGame.multiplyAll()).to.be.null;
     })
   });
+});
+
+describe("@Converting numbers to Array", () => {
+  const task = new app.task().listFromNumber;
+  it('expect to return empty arrey if parameter is missing', () =>{
+    expect(task()).to.be.empty;
+  });
+  it('expect to return empty arrey if parameter is NaN', () =>{
+    expect(task("some string 123")).to.be.empty;
+  });
+  it('expect to accept a number and return array of 9 digits', () => {
+    expect(task(789).length).to.equal(9);
+  });
+});
+
+describe("@Spliting arrey to groups", () => {
+  const task = new app.task().splitToGroups;
+  it("after passing number expect to return array of three arrays inside",() => {
+    expect(task(22).length).to.equal(3);
+  });
+  it('expect each of arrey to have 3 elements inside', () => {
+    task(1).forEach((element) => {
+      expect(element.length).to.equal(3);
+    });
+  });
 })
