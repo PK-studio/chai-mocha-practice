@@ -44,15 +44,46 @@ describe('@ Playing on values', function(){
 });
 
 describe('@ Paying on array', () => {
-  let arreyGame = null;
+  let arrayGame = null;
 
   beforeEach( () => {
-    arreyGame = new app.arreyGame();
+    arrayGame = new app.arrayGame();
   })
 
-  describe('check if constructor function exist', function(){
-    it('it should return constructor', function(){
-      expect(arreyGame).to.be.a('object');
+  describe('check if constructor function exist', () => {
+    it('it should return constructor', () => {
+      expect(arrayGame).to.be.a('object');
     });
+  });
+
+  describe('check all constructor methods', () =>  {
+    it('expect array contains only numbers', () =>  {
+      let checkValue = arrayGame.getNumbers().forEach(element => {
+        expect(element).to.be.a('number' ,['Error - found string'])
+      });
+    });
+    it('expect sumNumbers to return 0 afert initialization', () =>  {
+      expect(arrayGame.sumNumbers()).to.equal(0);
+    });
+    it('expect multiplyAll to return null afert initialization', () =>  {
+      expect(arrayGame.multiplyAll()).to.be.null;
+    });
+    it("expect sumNuber to return 5 after pushing 3 and 2", () => {
+      arrayGame.push(3);
+      arrayGame.push(2);
+      expect(arrayGame.sumNumbers()).to.equal(5);
+    });
+    it("expect 0 after pushing 20 and 103 and cleaning array on the end", () => {
+      arrayGame.push(20);
+      arrayGame.push(103);
+      arrayGame.clear();
+      expect(arrayGame.sumNumbers()).to.equal(0);
+    })
+    it("expect null after pushing 10 and 1 and cleaning array on the end", () => {
+      arrayGame.push(10);
+      arrayGame.push(1);
+      arrayGame.clear();
+      expect(arrayGame.multiplyAll()).to.be.null;
+    })
   });
 })
